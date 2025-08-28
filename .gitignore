@@ -1,0 +1,19 @@
+﻿# VS / build
+.vs/
+bin/
+obj/
+
+# NuGet cache
+packages/
+.nuget/
+
+# Databases
+App_Data/
+*.mdf
+*.ldf
+*.bak
+*.sql
+
+# Local secrets
+connectionStrings.secret.config
+appSettings.secret.config
