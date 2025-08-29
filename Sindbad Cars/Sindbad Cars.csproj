@@ -142,6 +142,7 @@
     <Content Include="Toyota  innova\Hycross.jpg" />
     <Content Include="Toyota corolla\XLE.jpg" />
     <Content Include="Toyota corolla\XSE.jpg" />
+    <Content Include="UserProfile.aspx" />
     <Content Include="Userregister.aspx" />
     <Content Include="Vehicle1.aspx" />
     <Content Include="Vehicle2.aspx" />
@@ -179,6 +180,13 @@
       <DependentUpon>Phurcase.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserProfile.aspx.cs">
+      <DependentUpon>UserProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserProfile.aspx.designer.cs">
+      <DependentUpon>UserProfile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Userregister.aspx.cs">
       <DependentUpon>Userregister.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

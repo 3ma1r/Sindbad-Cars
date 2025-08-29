@@ -17,3 +17,6 @@ App_Data/
 # Local secrets
 connectionStrings.secret.config
 appSettings.secret.config
+
+# VS user settings
+*.user
