@@ -1,270 +1,186 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Model1.aspx.cs" Inherits="Sindbad_Cars.Model1" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Model2.aspx.cs" Inherits="Sindbad_Cars.Model2" %>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head runat="server">
-    <title>Sindbad Cars</title>
-
     <meta charset="utf-8" />
+    <title>Sindbad Cars • Compact Cars</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap 5 + Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
 
     <style>
-    header {
-        background-color: #333;
-        color: #fff;
-        padding: 20px;
-        text-align: center;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    header h1 {
-        margin-bottom: 10px;
-    }
-
-    
-    nav ul {
-        list-style: none;
-    }
-
-    nav ul li {
-        display: inline;
-        margin-right: 20px;
-    }
-
-    nav ul li a {
-        color: #fff;
-        text-decoration: none;
-    }
-
-    
-    main {
-        padding: 20px;
-    }
-
-    
-    .image-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 20px;
-    }
-
-    
-    .image-container img {
-        max-width: 45%; 
-        margin: 0 5px; 
-    }
-
-    
-    .image-description {
-        text-align: center;
-        margin-top: 10px;
-    }
-        .auto-style1 {
-            font-family: Arial;
-            font-size: medium;
-            font-weight: bold;
+        :root{
+            --brand:#0d6efd; --ink:#1f2937; --muted:#6b7280; --bg:#f7f8fb;
+            --card-r:18px; --shadow:0 10px 30px rgba(16,24,40,.08); --shadow-lg:0 24px 60px rgba(16,24,40,.14);
         }
-         
-        .site-footer {
-            background-color: #26272b;
-            padding: 15px 0;
-            font-size: 15px;
-            line-height: 24px;
-            color: #737373;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        body{font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;background:var(--bg);color:var(--ink)}
+        .navbar{backdrop-filter:blur(8px); background:rgba(255,255,255,.85); border-bottom:1px solid rgba(0,0,0,.06)}
+        .navbar-brand img{height:44px}
+
+        /* Hero */
+        .hero{
+            background: radial-gradient(900px 400px at 10% -10%, rgba(13,110,253,.15), transparent 60%),
+                        radial-gradient(700px 400px at 110% 0%, rgba(102,16,242,.12), transparent 60%),
+                        #0b1220;
+            color:#fff; text-align:center; padding:56px 0 40px;
+        }
+        .hero .container{max-width:980px}
+
+        /* Cards */
+        .car-card{background:#fff; border:0; border-radius:var(--card-r); box-shadow:var(--shadow); overflow:hidden; transition:transform .18s ease, box-shadow .18s ease}
+        .car-card:hover{transform:translateY(-4px); box-shadow:var(--shadow-lg)}
+
+        /* UNIFORM IMAGE HEIGHT, CONSISTENT CROP */
+        .car-card .img-wrap{
+            aspect-ratio: 16/9;       /* same visual height for all cards */
+            overflow:hidden;
+            background:#f4f6f9;
+        }
+        .car-card .img-wrap img{
+            width:100%;
+            height:100%;
+            object-fit:cover;         /* fill the box; slight crop for identical look */
+            display:block;
         }
 
-        .site-footer hr {
-            border-top-color: #bbb;
-            opacity: 0.5;
-        }
+        .price{font-weight:800; letter-spacing:-.01em}
 
-        .site-footer hr.small {
-            margin: 10px 0;
-        }
-
-        .site-footer h6 {
-            color: #fff;
-            font-size: 16px;
-            text-transform: uppercase;
-            margin-top: 5px;
-            letter-spacing: 2px;
-        }
-
-        .site-footer a {
-            color: #737373;
-        }
-
-        .site-footer a:hover {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .footer-links {
-            padding-left: 0;
-            list-style: none;
-        }
-
-        .footer-links li {
-            display: block;
-        }
-
-        .footer-links a {
-            color: #737373;
-        }
-
-        .footer-links a:active,
-        .footer-links a:focus,
-        .footer-links a:hover {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .site-footer .social-icons {
-            text-align: right;
-        }
-
-        .site-footer .social-icons a {
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
-            margin-left: 6px;
-            margin-right: 0;
-            border-radius: 100%;
-            background-color: #33353d;
-        }
-
-        .copyright-text {
-            margin: 0;
-        }
-
-        @media (max-width: 991px) {
-            .site-footer [class^="col-"] {
-                margin-bottom: 30px;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .site-footer {
-                padding-bottom: 0;
-            }
-            .site-footer .copyright-text,
-            .site-footer .social-icons {
-                text-align: center;
-            }
-        </style>
+        /* Footer */
+        footer{background:#0b1220;color:#e5e7eb;margin-top:56px}
+        footer .bottom{border-top:1px solid rgba(255,255,255,.08)}
+    </style>
 </head>
 <body>
-    
-    <header>
-        <h1>Compact Cars</h1>
-        <h2>Toyota Corolla Models</h2>
-        
-        <img src="logo2/logo2.png" alt="Logo" width="150" height="150">
-        
-        <nav>
-    <ul class="auto-style5">
-       <li><a href="index.aspx">Home</a></li>
- <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Vehicles</a>
-            <ul class="dropdown-menu">
-                <li class="dropdown-header">Toyota Innova</li>
-                <li><a href="Vehicle1.aspx">Innova Hycross</a></li>
-                <li><a href="Vehicle2.aspx">Innova Crysta</a></li>
-                <li class="dropdown-divider"></li>
-                <li class="dropdown-header">Toyota Corolla</li>
-                <li><a href="Vehicle3.aspx">Corolla XLE</a></li>
-                <li><a href="Vehicle4.aspx">Corolla XSE</a></li>
-            </ul>
-        </li>
-        <li><a href="Phurcase.aspx">Purchases</a></li>
-        <li><a href="Userregister.aspx">Register</a></li>
-    </ul>
-</nav>
-    </header>
+<form id="form1" runat="server">
 
-    
-    <div class="image-container">
-        
-        <img src="Toyota corolla/XLE.jpg" alt="First Image">
-    </div>
-
-    
-    <div class="image-description">
-        <p class="auto-style1">Toyota Corolla XLE</p>
-        <p style="margin: 0px; padding: 0px; box-sizing: border-box; color: rgb(111, 111, 111); font-family: LatoGoogle, Lato, LatoWeb, sans-serif; font-size: 15px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(249, 249, 249); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">
-            <strong style="margin: 0px; padding: 0px; box-sizing: border-box; font-weight: 700;">When was the Toyota Corolla XLE launched?</strong></p>
-        <p style="margin: 0px; padding: 12px 0px 0px; box-sizing: border-box; color: rgb(111, 111, 111); font-family: LatoGoogle, Lato, LatoWeb, sans-serif; font-size: 15px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(249, 249, 249); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">
-            <span style="color: rgb(13, 13, 13); font-family: Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: pre-wrap; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">The Toyota Corolla XLE was launched for the 2020 model year</span></p>
-        <p style="margin: 0px; padding: 12px 0px 0px; box-sizing: border-box; color: rgb(111, 111, 111); font-family: LatoGoogle, Lato, LatoWeb, sans-serif; font-size: 15px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(249, 249, 249); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">
-            <strong style="margin: 0px; padding: 0px; box-sizing: border-box; font-weight: 700;">What features are available in the Toyota Corolla XLE?</strong></p>
-        <p style="margin: 0px; padding: 12px 0px 0px; box-sizing: border-box; color: rgb(111, 111, 111); font-family: LatoGoogle, Lato, LatoWeb, sans-serif; font-size: 15px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(249, 249, 249); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">
-            <span style="color: rgb(13, 13, 13); font-family: Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: pre-wrap; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">The Toyota Corolla XLE typically offers a range of comfort and convenience features aimed at enhancing the driving experience. Expect amenities such as premium soft-touch materials, heated 
-            front seats, and a power-adjustable driver&#39;s seat for added comfort. The XLE trim often includes advanced technology features like a high-resolution touchscreen infotainment system with Apple CarPlay and Android Auto integration, as well as a suite of driver assistance features such as pre-collision warning, adaptive cruise control, and lane departure alert with steering assist for added safety and convenience. Other features may include dual-zone automatic climate control, a smart key system with push-button start, and available options like a power moonroof or a premium sound system, making the Corolla XLE a well-equipped and comfortable choice in the compact sedan segment.</span></p>
-        
-        <button onclick="location.href='Vehicle3.aspx';" style="margin-top: 10px;">Learn more about the vehicle</button>
-    </div>
-
-    
-    <div class="image-container">
-        
-        <img src="Toyota corolla/XSE.jpg" alt="Second Image">
-    </div>
-
-    
-    <div class="image-description">
-        <p class="auto-style1">Toyota Corolla XSE</p>
-        <p style="margin: 0px; padding: 0px; box-sizing: border-box; color: rgb(111, 111, 111); font-family: LatoGoogle, Lato, LatoWeb, sans-serif; font-size: 15px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(249, 249, 249); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">
-            <strong style="margin: 0px; padding: 0px; box-sizing: border-box; font-weight: 700;">When was the Toyota Corolla XSE launched?</strong></p>
-        <p style="margin: 0px; padding: 12px 0px 0px; box-sizing: border-box; color: rgb(111, 111, 111); font-family: LatoGoogle, Lato, LatoWeb, sans-serif; font-size: 15px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(249, 249, 249); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">
-            <span style="color: rgb(13, 13, 13); font-family: Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: pre-wrap; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">The Toyota Corolla XSE was launched for the 2019 model year. This variant of the Corolla lineup features sportier styling and enhanced performance compared to the standard models.</span></p>
-        <p style="margin: 0px; padding: 12px 0px 0px; box-sizing: border-box; color: rgb(111, 111, 111); font-family: LatoGoogle, Lato, LatoWeb, sans-serif; font-size: 15px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(249, 249, 249); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">
-            <strong style="margin: 0px; padding: 0px; box-sizing: border-box; font-weight: 700;">What features are available in the Toyota Corolla XSE?</strong></p>
-        <p style="margin: 0px; padding: 12px 0px 0px; box-sizing: border-box; color: rgb(111, 111, 111); font-family: LatoGoogle, Lato, LatoWeb, sans-serif; font-size: 15px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(249, 249, 249); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">
-            <span style="color: rgb(13, 13, 13); font-family: Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: pre-wrap; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">The Toyota Corolla XSE typically offers sportier styling with features like unique front grille designs, sport side skirts, and LED lighting. Inside, you can expect premium materials such as 
-            SofTex or leather-trimmed seats, along with a high-resolution touchscreen infotainment system supporting Apple CarPlay and Android Auto. Advanced driver assistance systems like pre-collision warning and adaptive cruise control enhance safety, while conveniences like dual-zone automatic climate control and a smart key system with push-button start add comfort and ease of use. Depending on the model year and options, other features may include a premium sound system, wireless charging, sport seats, and a power moonroof, making the Corolla XSE an attractive choice for those seeking a blend of performance, style, and technology in a compact sedan.</span></p>
-        
-        <button onclick="location.href='Vehicle4.aspx';" style="margin-top: 10px;">Learn more about the vehicle</button>
-    </div>
-
-   
-   <footer class="site-footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h6>About Us</h6>
-                <p class="text-justify">
-                    <span style="font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: pre-wrap; background-color: rgb(33, 33, 33); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;" class="auto-style2">
-                        Welcome to Sindbad! We're your go-to destination for quality used MPV and Compact cars. With a focus on reliability and value, we offer a curated selection of vehicles that meet our high standards. Browse our inventory with confidence and find your perfect ride today
-                    </span>
-                </p>
-            </div>
-            <div class="col-md-6">
-                <h6 class="text-sm-right">Contact Information</h6>
-                <ul class="showroom-info">
-                    <p class="text-sm-right">Phone: +968 94793188</p>
-                    <p class="text-sm-right">Fax: +968 94793188</p>
-                    <p class="text-sm-right">Address: Sindbad Showroom, next to M H D, Sultan Qaboos St, Oman, Muscat </p>
-                    <p class="text-sm-right">Email: Sindbad_Cars@gmail.com</p>
+    <!-- NAV -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.aspx">
+                <img src="logo2/logo2.png" class="me-2" alt="Sindbad" />
+                <span class="fw-bold">Sindbad Cars</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navMain" class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.aspx">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Phurcase.aspx">Purchases</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Model1.aspx">MPV</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="Model2.aspx">Compact</a></li>
                 </ul>
             </div>
-            <div class="col-md-12 text-right">
-                <p class="text-center">Copyright © 2024 All Rights Reserved by
-                    <span class="auto-style14">Sindbad </span>
-                </p>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="container">
+            <h1 class="fw-bold mb-1">Compact Cars</h1>
+            <p class="mb-0 text-white-50">Toyota Corolla Models</p>
+        </div>
+    </header>
+
+    <!-- TWO CAR CARDS: XLE + XSE -->
+    <section class="container my-4">
+        <div class="row g-4">
+            <!-- Corolla XLE -->
+            <div class="col-12 col-md-6">
+                <div class="car-card card h-100">
+                    <div class="img-wrap">
+                        <img src="Toyota corolla/XLE.jpg" alt="Toyota Corolla XLE" />
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <h5 class="card-title mb-0">Toyota Corolla XLE</h5>
+                            <span class="badge bg-primary-subtle text-primary border border-primary-subtle">Comfort</span>
+                        </div>
+                        <p class="card-text text-muted mb-2">
+                            Premium soft-touch interior • Heated front seats • Power driver seat •
+                            Apple CarPlay/Android Auto • Toyota Safety Sense • Dual-zone A/C • Smart key.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="price">Contact for price</span>
+                            <a href="Vehicle3.aspx" class="btn btn-outline-primary btn-sm">Learn more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Corolla XSE -->
+            <div class="col-12 col-md-6">
+                <div class="car-card card h-100">
+                    <div class="img-wrap">
+                        <img src="Toyota corolla/XSE.jpg" alt="Toyota Corolla XSE" />
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <h5 class="card-title mb-0">Toyota Corolla XSE</h5>
+                            <span class="badge bg-danger-subtle text-danger border border-danger-subtle">Sport</span>
+                        </div>
+                        <p class="card-text text-muted mb-2">
+                            Sporty exterior • SofTex/leather-trimmed seats • Larger touchscreen •
+                            Toyota Safety Sense • Dual-zone A/C • Smart key • Optional moonroof & premium audio.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="price">Contact for price</span>
+                            <a href="Vehicle4.aspx" class="btn btn-outline-primary btn-sm">Learn more</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+
+        <!-- Back to ranges -->
+        <div class="text-center mt-4">
+            <a href="index.aspx#popular-section" class="btn btn-outline-secondary">
+                <i class="fa-solid fa-arrow-left-long me-1"></i> Back to ranges
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container py-4">
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="logo2/logo2.png" alt="Sindbad" style="height:40px" class="me-2" />
+                        <h5 class="mb-0 fw-bold text-white">Sindbad Cars</h5>
+                    </div>
+                    <p class="mb-0 text-white-50">Reliable MPV and Compact vehicles with transparent history, fair pricing, and real warranty.</p>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <h6 class="text-white fw-bold">Quick Links</h6>
+                    <ul class="list-unstyled mb-0">
+                        <li><a class="link-light text-decoration-none" href="index.aspx">Home</a></li>
+                        <li><a class="link-light text-decoration-none" href="Model1.aspx">MPV</a></li>
+                        <li><a class="link-light text-decoration-none" href="Model2.aspx">Compact</a></li>
+                        <li><a class="link-light text-decoration-none" href="Phurcase.aspx">Purchases</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <h6 class="text-white fw-bold">Contact</h6>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-1">+968 94793188</li>
+                        <li class="mb-1">Sindbad_Cars@gmail.com</li>
+                        <li>Sindbad Showroom, Sultan Qaboos St, Muscat, Oman</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="bottom py-3">
+            <div class="container text-center small text-white-50">
+                © 2024 Sindbad Cars. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
-
