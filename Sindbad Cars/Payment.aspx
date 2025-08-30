@@ -18,7 +18,7 @@
     body{font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;background:var(--bg);color:var(--ink)}
 
     .navbar{backdrop-filter:blur(8px); background:rgba(255,255,255,.85); border-bottom:1px solid rgba(0,0,0,.06)}
-    .navbar-brand img{height:44px}
+    .navbar-brand img{height:55px}
 
     .hero{
       background: radial-gradient(900px 400px at 10% -10%, rgba(13,110,253,.15), transparent 60%),
@@ -59,7 +59,7 @@
   <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="index.aspx">
-        <img src="logo2/logo2.png" class="me-2" alt="Sindbad" />
+        <img src="logo2/logo1.png" class="me-2" alt="Sindbad" />
         <span class="fw-bold">Sindbad Cars</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">

@@ -136,6 +136,7 @@
     <Content Include="js\bootstrap.esm.min.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="logo2\logo1.png" />
     <Content Include="logo2\logo2.png" />
     <Content Include="logo\logo final.png" />
     <Content Include="Model1.aspx" />

@@ -27,7 +27,7 @@
 
         /* Navbar */
         .navbar { backdrop-filter: blur(8px); background: rgba(255,255,255,0.75); border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .navbar-brand img { height: 44px; }
+        .navbar-brand img { height: 55px; }
         .nav-link { font-weight: 600; }
 
         /* Hero */
@@ -81,7 +81,7 @@
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.aspx">
-                <img src="logo2/logo2.png" alt="Sindbad Logo" class="me-2">
+                <img src="logo2/logo1.png" alt="Sindbad Logo" class="me-2">
                 <span class="fw-bold">Sindbad Cars</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
@@ -203,7 +203,7 @@
             <div class="row g-4">
                 <div class="col-lg-6">
                     <div class="footer-brand d-flex align-items-center mb-2">
-                        <img src="logo2/logo2.png" alt="Sindbad Logo" class="me-2">
+                        <img src="logo2/logo1.png" alt="Sindbad Logo" class="me-2">
                         <h5 class="mb-0 text-white fw-bold">Sindbad Cars</h5>
                     </div>
                     <p class="mb-0 text-white-50">

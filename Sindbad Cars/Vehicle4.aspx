@@ -19,7 +19,7 @@
 
         /* NAV */
         .navbar{backdrop-filter:blur(8px); background:rgba(255,255,255,.85); border-bottom:1px solid rgba(0,0,0,.06)}
-        .navbar-brand img{height:44px}
+        .navbar-brand img{height:55px}
 
         /* HERO */
         .hero{
@@ -69,7 +69,7 @@
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.aspx">
-                <img src="logo2/logo2.png" class="me-2" alt="Sindbad" />
+                <img src="logo2/logo1.png" class="me-2" alt="Sindbad" />
                 <span class="fw-bold">Sindbad Cars</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
@@ -221,7 +221,7 @@
             <div class="row g-4">
                 <div class="col-lg-6">
                     <div class="d-flex align-items-center mb-2">
-                        <img src="logo2/logo2.png" alt="Sindbad" style="height:40px" class="me-2" />
+                        <img src="logo2/logo1.png" alt="Sindbad" style="height:40px" class="me-2" />
                         <h5 class="mb-0 fw-bold text-white">Sindbad Cars</h5>
                     </div>
                     <p class="mb-0 text-white-50">Reliable MPV and Compact vehicles with transparent history, fair pricing, and real warranty.</p>
