@@ -207,7 +207,8 @@
                 <div class="price">OMR 7,400</div>
             </div>
             <div>
-                <a href="Userregister.aspx" class="btn btn-primary btn-lg">Buy</a>
+                <a href="Payment.aspx?item=Toyota%20Innova%20Crysta&price=7400"
+   class="btn btn-primary btn-lg">Buy</a>
             </div>
             <hr />
             <div class="small text-muted">
