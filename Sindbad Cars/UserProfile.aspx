@@ -56,7 +56,7 @@
             <div id="navMain" class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.aspx">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Phurcase.aspx">Purchases</a></li>
+                    
                     <li class="nav-item"><a class="nav-link active" href="UserProfile.aspx">Profile</a></li>
                 </ul>
             </div>
@@ -211,7 +211,7 @@
                     <h6 class="text-white fw-bold">Quick Links</h6>
                     <ul class="list-unstyled mb-0">
                         <li><a class="link-light text-decoration-none" href="index.aspx">Home</a></li>
-                        <li><a class="link-light text-decoration-none" href="Phurcase.aspx">Purchases</a></li>
+                        
                         <li><a class="link-light text-decoration-none" href="Userregister.aspx">Register</a></li>
                     </ul>
                 </div>
