@@ -70,7 +70,7 @@
           <li class="nav-item"><a class="nav-link" href="index.aspx">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="Model1.aspx">MPV</a></li>
           <li class="nav-item"><a class="nav-link" href="Model2.aspx">Compact</a></li>
-          <li class="nav-item"><a class="nav-link" href="Phurcase.aspx">Purchases</a></li>
+          
         </ul>
       </div>
     </div>
