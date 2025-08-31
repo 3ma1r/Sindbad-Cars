@@ -235,5 +235,50 @@
 </form>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Populate profile from localStorage (no backend) -->
+<script>
+(function(){
+  // Find by exact ID or Web Forms-generated ID that ends with the key
+  function find(id){
+    return document.getElementById(id) || document.querySelector('[id$="' + id + '"]');
+  }
+  function setText(id, val){
+    if (!val) return;
+    const el = find(id);
+    if (el) el.textContent = val;
+  }
+  function setValue(id, val){
+    const el = find(id);
+    if (el) el.value = (val || '');
+  }
+
+  // Read saved user from Auth page (localStorage)
+  let data = null;
+  try { data = JSON.parse(localStorage.getItem('sc_user') || '{}'); } catch(e) { data = {}; }
+  if (!data || (!data.name && !data.email && !data.phone)) return;
+
+  // Populate labels/text (only if those IDs exist on your page)
+  setText('lblName',  data.name);
+  setText('lblPhone', data.phone);
+  setText('lblEmail', data.email);
+
+  // Populate edit inputs (only if those IDs exist)
+  setValue('txtFullName',   data.name);
+  setValue('txtPhoneEdit',  data.phone);
+  setValue('txtAddressEdit',''); // left blank—wasn't collected
+
+  // Member since (optional)
+  if (!localStorage.getItem('sc_memberSince')) {
+    try { localStorage.setItem('sc_memberSince', new Date().toISOString()); } catch(e){}
+  }
+  const sinceIso = localStorage.getItem('sc_memberSince');
+  if (sinceIso){
+    const since = new Date(sinceIso);
+    const fmt = since.toLocaleString(undefined, { month:'short', year:'numeric' });
+    setText('lblMemberSince', fmt);
+  }
+})();
+</script>
 </body>
 </html>
