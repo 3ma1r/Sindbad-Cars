@@ -75,6 +75,7 @@
     <Content Include="App_Data\Register_and_purchase_log.ldf">
       <DependentUpon>Register_and_purchase.mdf</DependentUpon>
     </Content>
+    <Content Include="Auth.aspx" />
     <Content Include="Car pic 2\1 %281%29.png" />
     <Content Include="Car pic 2\car 2.jpg" />
     <Content Include="Car pic 2\car3.jpg" />
@@ -160,6 +161,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Auth.aspx.cs">
+      <DependentUpon>Auth.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Auth.aspx.designer.cs">
+      <DependentUpon>Auth.aspx</DependentUpon>
+    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

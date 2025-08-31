@@ -51,11 +51,11 @@
         /* Cards */
         .card-glow { border: 0; border-radius: var(--card-radius); background: #fff; box-shadow: var(--shadow); transition: transform .25s ease, box-shadow .25s ease; height: 100%; }
         .card-glow:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
-        .card-glow .card-body { padding: 20px; } /* slightly smaller padding */
+        .card-glow .card-body { padding: 20px; }
 
-        /* Popular Ranges — same image style as before (no crop), but smaller card */
-        .range-card { max-width: 520px; margin-inline: auto; } /* shrink card a bit */
-        .range-card .card-img-top { width: 100%; height: auto; border-radius: 14px; } /* keep natural ratio */
+        /* Popular Ranges */
+        .range-card { max-width: 520px; margin-inline: auto; }
+        .range-card .card-img-top { width: 100%; height: auto; border-radius: 14px; }
 
         /* Features icons */
         .feature-icon { width: 72px; height: 72px; object-fit: contain; filter: drop-shadow(0 6px 18px rgba(0,0,0,.12)); }
@@ -91,7 +91,11 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.aspx">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#popular-section">Ranges</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Userregister.aspx">Register</a></li>
+
+                    <!-- NEW -->
+                    <li class="nav-item"><a class="nav-link" href="UserProfile.aspx">Profile</a></li>
+                    <li class="nav-item"><a id="navLogout" class="nav-link" href="Auth.aspx">Logout</a></li>
+                    <!-- /NEW -->
                 </ul>
             </div>
         </div>
@@ -107,7 +111,7 @@
                 <a href="#popular-section" class="btn btn-primary btn-lg">
                     Explore Ranges <i class="fa-solid fa-arrow-right ms-2"></i>
                 </a>
-                <a href="Userregister.aspx" class="btn btn-outline-primary btn-lg">Register</a>
+                <!-- removed Register button intentionally -->
             </div>
         </div>
     </section>
@@ -216,8 +220,7 @@
                     <ul class="list-unstyled mb-0">
                         <li><a class="footer-link" href="index.aspx">Home</a></li>
                         <li><a class="footer-link" href="#popular-section">Ranges</a></li>
-                        
-                        <li><a class="footer-link" href="Userregister.aspx">Register</a></li>
+                        <li><a class="footer-link" href="UserProfile.aspx">Profile</a></li>
                     </ul>
                 </div>
 
@@ -242,7 +245,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Counter Animation
+        // Counter Animation (unchanged)
         const counters = document.querySelectorAll('.counter');
         counters.forEach(counter => {
             const target = +counter.getAttribute('data-count');
@@ -255,6 +258,14 @@
             };
             tick();
         });
+
+        // NEW: logout clears temporary profile and lets the browser follow the link to Auth.aspx
+        const logout = document.getElementById('navLogout');
+        if (logout) {
+            logout.addEventListener('click', () => {
+                try { localStorage.removeItem('sc_user'); } catch (e) { }
+            });
+        }
     </script>
 </body>
 </html>
