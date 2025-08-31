@@ -212,7 +212,7 @@
                     <ul class="list-unstyled mb-0">
                         <li><a class="link-light text-decoration-none" href="index.aspx">Home</a></li>
                         
-                        <li><a class="link-light text-decoration-none" href="Userregister.aspx">Register</a></li>
+                        
                     </ul>
                 </div>
                 <div class="col-lg-3 col-6">

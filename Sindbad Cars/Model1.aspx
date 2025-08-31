@@ -60,6 +60,8 @@
                     
                     <li class="nav-item"><a class="nav-link active" href="Model1.aspx">MPV</a></li>
                     <li class="nav-item"><a class="nav-link" href="Model2.aspx">Compact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="UserProfile.aspx">Profile</a></li>
+                    <li class="nav-item"><a id="navLogout" class="nav-link" href="Auth.aspx">Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -152,6 +154,7 @@
                         <li><a class="link-light text-decoration-none" href="index.aspx">Home</a></li>
                         <li><a class="link-light text-decoration-none" href="Model1.aspx">MPV</a></li>
                         <li><a class="link-light text-decoration-none" href="Model2.aspx">Compact</a></li>
+                        <li><a class="link-light text-decoration-none" href="UserProfile.aspx">Profile</a></li>
                         
                     </ul>
                 </div>
