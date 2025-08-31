@@ -60,8 +60,11 @@
         /* Features icons */
         .feature-icon { width: 72px; height: 72px; object-fit: contain; filter: drop-shadow(0 6px 18px rgba(0,0,0,.12)); }
 
-        /* Counters */
-        .counters { background: linear-gradient(90deg, var(--brand), var(--brand-2)); color: #fff; border-radius: 24px; padding: 36px 18px; box-shadow: var(--shadow-lg); }
+        /* Counters (updated: dark gradient matching nav/footer) */
+        .counters {
+            background: linear-gradient(90deg, #0b1220 0%, #11182a 50%, #1b1340 100%);
+            color: #fff; border-radius: 24px; padding: 36px 18px; box-shadow: var(--shadow-lg);
+        }
         .counter { font-size: clamp(36px, 5vw, 56px); font-weight: 800; line-height: 1; }
         .counter-label { opacity: .9; }
 
@@ -244,28 +247,54 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Counters on-scroll + slower pace, and logout persistence -->
     <script>
-        // Counter Animation (unchanged)
-        const counters = document.querySelectorAll('.counter');
-        counters.forEach(counter => {
-            const target = +counter.getAttribute('data-count');
-            let current = 0;
-            const step = Math.ceil(target / 40);
-            const tick = () => {
-                current = Math.min(current + step, target);
-                counter.textContent = current.toLocaleString();
-                if (current < target) requestAnimationFrame(tick);
-            };
-            tick();
-        });
+        (() => {
+            // --- Counter animation (runs when counters enter the viewport) ---
+            const counters = Array.from(document.querySelectorAll('.counter'));
 
-        // NEW: logout clears temporary profile and lets the browser follow the link to Auth.aspx
-        const logout = document.getElementById('navLogout');
-        if (logout) {
-            logout.addEventListener('click', () => {
-                try { localStorage.removeItem('sc_user'); } catch (e) { }
-            });
-        }
+            function animateCounter(el) {
+                if (el.dataset.animated === '1') return;   // run once
+                el.dataset.animated = '1';
+
+                const target = +el.getAttribute('data-count');
+                let current = 0;
+
+                // Slower speed so it's clearly visible
+                const step = Math.max(1, Math.ceil(target / 120)); // was ~/40 earlier
+
+                function tick() {
+                    current = Math.min(current + step, target);
+                    el.textContent = current.toLocaleString();
+                    if (current < target) requestAnimationFrame(tick);
+                }
+                tick();
+            }
+
+            if ('IntersectionObserver' in window) {
+                const io = new IntersectionObserver((entries) => {
+                    entries.forEach((e) => {
+                        if (e.isIntersecting) {
+                            animateCounter(e.target);
+                            io.unobserve(e.target); // animate once
+                        }
+                    });
+                }, { threshold: 0.25 }); // 25% visible
+
+                counters.forEach(c => io.observe(c));
+            } else {
+                // Fallback for older browsers
+                counters.forEach(animateCounter);
+            }
+
+            // --- Logout: clear temporary profile and follow the link to Auth.aspx ---
+            const logout = document.getElementById('navLogout');
+            if (logout) {
+                logout.addEventListener('click', () => {
+                    try { localStorage.removeItem('sc_user'); } catch (_) { }
+                });
+            }
+        })();
     </script>
 </body>
 </html>
