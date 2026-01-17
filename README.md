@@ -13,7 +13,6 @@ A modern **ASP.NET Web Forms** web application for browsing used cars (MPV & Com
 
 ---
 ## Screenshots
-> Add screenshots inside a folder like `/screenshots` then update paths below.
 
 - **Home Page**
   ![Home](screenshots/home.png)
