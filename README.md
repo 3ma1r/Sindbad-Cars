@@ -1,0 +1,75 @@
+# Sindbad Cars
+
+A modern **ASP.NET Web Forms** web application for browsing used cars (MPV & Compact), exploring detailed vehicle pages, and placing a **demo checkout**. It also includes a **front-end authentication page (no backend yet)** where users can sign up, and their info is stored temporarily and displayed on the **Profile** page.
+
+---
+
+## Live Demo / Links
+- **Live Demo:** _Add your SmartASP.NET URL here_
+- **GitHub Repo:** _Add your GitHub repo link here_
+
+---
+
+## Screenshots
+> Add screenshots inside a folder like `/screenshots` then update paths below.
+
+- **Home Page**
+  ![Home](screenshots/home.png)
+
+- **Vehicle Details**
+  ![Vehicle Details](screenshots/vehicle.png)
+
+- **Auth Page**
+  ![Auth](screenshots/auth.png)
+
+- **Profile Page**
+  ![Profile](screenshots/profile.png)
+
+- **Checkout Page (Demo)**
+  ![Checkout](screenshots/checkout.png)
+
+---
+
+## Tech Stack (Top 5)
+- **ASP.NET Web Forms** (.NET Framework 4.7.2)
+- **Bootstrap 5**
+- **C#**
+- **JavaScript (Vanilla)**
+- **SmartASP.NET Hosting**
+
+---
+
+## Key Features (Top 3)
+- **Vehicle browsing experience** with MPV/Compact ranges and clean detail pages (specs, history, gallery).
+- **Demo checkout flow** with validation and success redirect (no real payment processing).
+- **Auth + Profile (no backend yet):** user signs up on `Auth.aspx`, data is saved in `localStorage`, and shown in `UserProfile.aspx`.
+
+---
+
+## Pages Overview
+- `Auth.aspx` → First landing page (signup/login + info sections)
+- `index.aspx` → Home page (features, counters, popular ranges)
+- `Model1.aspx` → MPV range
+- `Model2.aspx` → Compact range
+- `Vehicle1.aspx` – `Vehicle4.aspx` → Vehicle details pages
+- `Payment.aspx` → Demo checkout page
+- `UserProfile.aspx` → Displays user data saved from Auth
+
+---
+
+## How the Auth Works (Temporary)
+- On successful signup, the app saves:
+  - name
+  - email
+  - phone  
+  into `localStorage` under:
+  - `sc_user`
+
+- The **UserProfile** page reads `sc_user` and displays it (temporary only).
+
+---
+
+## Run Locally
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/<YOUR-USERNAME>/<YOUR-REPO>.git
