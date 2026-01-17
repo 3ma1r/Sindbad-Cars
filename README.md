@@ -84,4 +84,21 @@ To make Auth.aspx open first, add this into Web.config:
     </files>
   </defaultDocument>
 </system.webServer>
+ ```
 
+## Limitations
+
+- Authentication is front-end only (no database storage for accounts).
+- Checkout is dummy/demo only (no real payment gateway).
+- Profile data is temporary and can be cleared by browser storage reset/logout.
+
+---
+
+## Future Improvements
+
+- Add a real database for user accounts and login.
+- Save purchases to database.
+- Admin dashboard for adding/editing vehicles.
+- Real payment integration.
+
+---
