@@ -14,20 +14,19 @@ A modern **ASP.NET Web Forms** web application for browsing used cars (MPV & Com
 ---
 ## Screenshots
 
-- **Home Page**
-  ![Home](screenshots/home.png)
+ ### Home Page:
+  ![Home 1:](home-page.png)
+  ![Home 2:](home-page2.png)
+  ![Home 3:](home-page3.png)
 
-- **Vehicle Details**
-  ![Vehicle Details](screenshots/vehicle.png)
+ ### Auth Page:
+  ![Auth](Auth-page.png)
 
-- **Auth Page**
-  ![Auth](screenshots/auth.png)
+ ### Profile Page:
+  ![Profile](profile-page.png)
 
-- **Profile Page**
-  ![Profile](screenshots/profile.png)
-
-- **Checkout Page (Demo)**
-  ![Checkout](screenshots/checkout.png)
+ ### Checkout Page:
+  ![Checkout](checkout-page.png)
 
 ---
 
