@@ -4,12 +4,14 @@ A modern **ASP.NET Web Forms** web application for browsing used cars (MPV & Com
 
 ---
 
-## Live Demo / Links
-- **Live Demo:** _Add your SmartASP.NET URL here_
-- **GitHub Repo:** _Add your GitHub repo link here_
+## Tech Stack (Top 5)
+- **ASP.NET Web Forms** (.NET Framework 4.7.2)
+- **Bootstrap 5**
+- **C#**
+- **JavaScript (Vanilla)**
+- **SmartASP.NET Hosting**
 
 ---
-
 ## Screenshots
 > Add screenshots inside a folder like `/screenshots` then update paths below.
 
@@ -27,15 +29,6 @@ A modern **ASP.NET Web Forms** web application for browsing used cars (MPV & Com
 
 - **Checkout Page (Demo)**
   ![Checkout](screenshots/checkout.png)
-
----
-
-## Tech Stack (Top 5)
-- **ASP.NET Web Forms** (.NET Framework 4.7.2)
-- **Bootstrap 5**
-- **C#**
-- **JavaScript (Vanilla)**
-- **SmartASP.NET Hosting**
 
 ---
 
@@ -73,3 +66,22 @@ A modern **ASP.NET Web Forms** web application for browsing used cars (MPV & Com
 1. Clone the repository:
    ```bash
    git clone https://github.com/<YOUR-USERNAME>/<YOUR-REPO>.git
+2. Open the solution in Visual Studio.
+3. Make sure you have .NET Framework 4.7.2 installed.
+4. Run with IIS Express.
+
+## Deployment Notes (SmartASP.NET)
+
+To make Auth.aspx open first, add this into Web.config:
+   ```bash
+  <system.webServer>
+  <defaultDocument>
+    <files>
+      <clear />
+      <add value="Auth.aspx" />
+      <add value="index.aspx" />
+      <add value="Default.aspx" />
+    </files>
+  </defaultDocument>
+</system.webServer>
+
